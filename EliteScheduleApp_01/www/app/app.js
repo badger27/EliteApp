@@ -1,6 +1,6 @@
 angular.module("eliteApp", ["ionic"])
 
-.run(function($ionicPlatform, DSCacheFactory) {
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -14,8 +14,25 @@ angular.module("eliteApp", ["ionic"])
   });
 })
 
-        .config(function ($stateProvider, $u) {
+        .config(function ($stateProvider, $urlRouterProvider) {
+           
+                    $stateProvider
             
-        })
+                    .state('home', {
+                        url: "/home",
+                        templateUrl: 'app/home/home.html'
+                                
+                    })
+                            
+                    .state('app', {
+                url: "/app",
+                templateUrl: "app/layout/menu-layout.html"
+                        
+            });
+                   
+    
+            $urlRouterProvider.otherwise('/app');
+        });
+
 
 
